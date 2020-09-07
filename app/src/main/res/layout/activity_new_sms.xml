@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DownloadSmsActivity"
+    tools:ignore="ExtraText">
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="Read_SMS"
+        android:text="Скачать СМС"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="300dp"
+        android:text="Дата и время"
+        android:textColor="#3A3A3A" />
+
+
+    <TextView
+        android:id="@+id/textViewSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="325dp"
+        android:text="Отправитель"
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewProcess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="350dp"
+        android:text="Процесс"
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="375dp"
+        android:text="Номер карты"
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="400dp"
+        android:text="Стоимость"
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewOrganization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="425dp"
+        android:text="Организация"
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="450dp"
+        android:text="Остаток"
+        android:textColor="#3A3A3A" />
+ <TextView
+        android:id="@+id/textViewDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="300dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+
+    <TextView
+        android:id="@+id/textViewSender2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="325dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewProcess2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="350dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewCard2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="375dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewPrice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="400dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewOrganization2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="425dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textViewLimit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="450dp"
+        android:text=""
+        android:textColor="#3A3A3A" />
+
+    <TextView
+        android:id="@+id/textSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignBottom="@+id/editTextSender"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginBottom="10dp"
+        android:text="Отправитель"
+        android:textColor="#3A3A3A"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextSender"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="0dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textViewSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="500dp"
+        android:text="Текст СМС"
+        android:textColor="#3A3A3A" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/stat_sys_download_done" />
+
+
+</RelativeLayout>

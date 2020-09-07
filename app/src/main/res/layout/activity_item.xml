@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    tools:context=".activity_item"
+    android:weightSum="100">
+
+
+    <ImageView
+        android:id="@+id/imageViewItem"
+        android:layout_width="wrap_content"
+        android:layout_weight="10"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/ic_transportation_24" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="50">
+
+        <TextView
+            android:id="@+id/itemTextView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+
+        <TextView
+            android:id="@+id/subItemTextView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="40">
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/billTextView2"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_bill">
+    <item>Наличные</item>
+    <item>Тинькофф *9048</item>
+    <item>Газпромбанк *8589</item>
+    <item>Сбербанк *8000</item>
+</string-array>
+    <string-array name="array_item">
+    <item>Продукты</item>
+    <item>Обед</item>
+    <item>ЖКХ</item>
+    <item>Транспорт</item>
+</string-array>
+</resources>
