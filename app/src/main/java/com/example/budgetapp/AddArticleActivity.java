@@ -2,9 +2,13 @@ package com.example.budgetapp;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
+
+import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,14 +19,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import com.example.budgetapp.Data.BudgetContract.ArticleEntry;
-import com.example.budgetapp.Data.BudgetContract.SMSEntry;
 
-public class AddArticleActivity extends AppCompatActivity {
-
+public class AddArticleActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    private static final int EDIT_ARTICLE_LOADER = 111;
+    Uri currentItemUri;
     private EditText editTextDate;
     private Spinner spinnerItem;
     private EditText editTextSubitem;
@@ -37,9 +45,18 @@ public class AddArticleActivity extends AppCompatActivity {
         setTitle("Добавить статью");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_article);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setHomeButtonEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        Intent intent = getIntent();
+
+        currentItemUri = intent.getData();
+
+        if (currentItemUri == null) {
+            setTitle("Add a Item");
+            invalidateOptionsMenu();
+        } else {
+            setTitle("Edit the Item");
+            getSupportLoaderManager().initLoader(EDIT_ARTICLE_LOADER, null,this);
+        }
 
         editTextDate = findViewById(R.id.editTextDate);
         editTextSubitem = findViewById(R.id.editTextSubitem);
@@ -116,34 +133,71 @@ public class AddArticleActivity extends AppCompatActivity {
         else Toast.makeText(this, "Data saved", Toast.LENGTH_LONG);
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-//        return super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.edit_item_menu, menu);
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.i("onPrepareOptionsMenu ", "1 этап");
+
+        super.onPrepareOptionsMenu(menu);
+
+        if (currentItemUri == null) {
+            MenuItem menuItem = menu.findItem(R.id.delete_item);
+            menuItem.setVisible(false);
+        }
+
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("onCreateOptionsMenu ", "1 этап");
+        Toast.makeText(this, "Сделано меню", Toast.LENGTH_LONG);
+        getMenuInflater().inflate(R.menu.edit_item_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.i("onOptionsItemSelected ", "1 этап");
+                Toast.makeText(this, "Нажата кнопка", Toast.LENGTH_LONG);
         switch (item.getItemId()) {
             case R.id.save_item:
+                InsertArticle();
                 return true;
             case R.id.delete_item:
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
-                this.finish();
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
-//        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 
+    @NonNull
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
 
-/*
-    private void insertArticle(){
-        String
-    }*/
+        String[] projection = {
+                ArticleEntry._ID, ArticleEntry.COLUMNT_DATE, ArticleEntry.COLUMNT_ITEM, ArticleEntry.COLUMNT_SUBITEM, ArticleEntry.COLUMNT_AMOUNT,
+                ArticleEntry.COLUMNT_BILL, ArticleEntry.COLUMNT_NOTES
+        };
+
+        return new CursorLoader(this,
+                currentItemUri,
+                projection,
+                null,
+                null,
+                null
+        );
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+
+    }
 }
